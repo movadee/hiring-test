@@ -1,0 +1,13 @@
+<mat-card *ngIf="ticketState$ | async as ticketState">
+  <mat-card-title>{{ticketState.ticket.id}}</mat-card-title>
+  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  <mat-card-content>
+    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+    bred for hunting.
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>ASSIGN</button>
+    <button mat-button>COMPLETE</button>
+  </mat-card-actions>
+</mat-card>

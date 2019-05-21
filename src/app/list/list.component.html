@@ -1,0 +1,35 @@
+<mat-grid-list cols="2" rowHeight="100px">
+  <mat-grid-tile>
+    <form>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Filter">
+        <mat-icon matSuffix>filter_list</mat-icon>
+      </mat-form-field>
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-raised-button color="primary">Add Ticket</button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+<!-- Tickets List -->
+<mat-grid-list cols="2" rowHeight="300px" *ngIf="ticketListState$ | async as ticketListState">
+  <mat-grid-tile *ngFor="let t of ticketListState.tickets">
+
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{t.assigneeId}}</mat-card-title>
+        <mat-card-subtitle>Ticket #{{t.id}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        {{t.description}}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button [routerLink]="['/task-details', t.id]">DETAILS</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </mat-grid-tile>
+</mat-grid-list>
